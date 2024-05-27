@@ -1,0 +1,147 @@
+.audiobook_row{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    /* max-height: 100vh; */
+    /* height: 100%; */
+}
+
+.col {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  .title{ 
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-align: center;
+  }
+
+
+.cover{
+    display: flex;
+    justify-content: center;
+}
+.cover img {
+    max-width: 100%; 
+    border-radius: 10px;
+  }
+  .details {
+    padding-top: 20px;
+  }
+.details .flex{
+    display: flex;
+    justify-content: space-between;
+}
+.boxchip{
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+.listens,
+.rating {
+  margin-right: 10px;
+}
+.genre_container {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+
+/* author */
+.author{
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    gap: 20px;
+    font-size: 1.2rem;
+    align-items: center;
+}
+.author img{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.author .author_name{
+    padding-bottom: 10px
+}
+.description{
+    padding-top: 20px;
+}
+.description_title{
+    padding-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.descriptions p{
+    text-align: justify;
+}
+
+.reviewform{
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.reviewheading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+.review_input_container {
+    margin-bottom: 20px;
+  }
+  .reviewinput {
+    width: 100%;
+    height: 120px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+.rating button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+.rating button:hover {
+    background-color: #0056b3;
+  }
+  
+
+
+/* ----------------------- */
+.season{
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 10px ;
+  margin-top: 10px;
+}
+
+.episodes{
+  display: flex;
+  padding-top: 8px;
+  margin-left: 10px;
+}
+.episodes div{
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  gap: 10px;
+}
+.episode_title{
+    color: #757575;
+}

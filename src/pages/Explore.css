@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+
+
+.exploreaudiobooks {
+  padding: 20px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.inputform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.searchbar,
+.filters {
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.input-field {
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  flex: 1;
+}
+
+.btn {
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.searchbar,
+.filters {
+  display: flex;
+  align-items: center;
+}
+
+.searchbar input,
+.filters input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.searchbar button,
+.filters button {
+  width: 75px;
+}

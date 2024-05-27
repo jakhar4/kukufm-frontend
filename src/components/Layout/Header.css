@@ -1,0 +1,29 @@
+.navbar_container {
+  padding: 25px;
+  margin: 0 0 20px 0;
+  background-color: #ee2a3a;
+  /* border-radius: 50px; */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 25px;
+  /* align-content: center; */
+}
+.options {
+  display: flex;
+  gap: 20px;
+}
+a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.2rem;
+  transition: 1.2s;
+}
+
+.hover a:hover {
+  text-decoration: underline solid 3px;
+  color: #f8a1a1;
+}
