@@ -1,7 +1,9 @@
 import { createContext, useContext, useState } from "react";
+
 export const AuthContext = createContext();
 
 export const AuthProvider =  ({ children }) => {
+    const backendserver = 'http://localhost:5000'
     const [token, setToken] = useState(localStorage.getItem("token"));
     const authorizationToken = `Bearer ${token}`;
   
@@ -9,9 +11,9 @@ export const AuthProvider =  ({ children }) => {
       setToken(serverToken);
       return localStorage.setItem("token", serverToken);
     };
-  
+    const userURL = `${backendserver}/api/users/`
+    const audiobookURL = `${backendserver}/api/audiobook/`
     let isLoggedIn = !!token;
-    
     const LogoutUser = () => {
       setToken("");
       return localStorage.removeItem("token");
@@ -24,6 +26,8 @@ export const AuthProvider =  ({ children }) => {
           storeTokenInLS,
           LogoutUser,
           authorizationToken,
+          userURL,
+          audiobookURL
         }}
       >
         {children}

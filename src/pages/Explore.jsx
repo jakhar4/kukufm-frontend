@@ -1,59 +1,60 @@
-import React, { useEffect, useState } from "react";
-import Abcard from "../components/cards/Abcard";
-import "./Explore.css";
+import React, { useEffect, useState } from 'react';
+import Abcard from '../components/cards/Abcard';
+import './Explore.css'
+import { useAuth } from '../store/auth';
+
 
 const ExploreAudiobooks = () => {
-  const [query, setQuery] = useState("");
-  const [author, setAuthor] = useState("");
-  const [genre, setGenre] = useState("");
+  const {audiobookURL} = useAuth()
+  const [query, setQuery] = useState('');
+  const [author, setAuthor] = useState('');
+  const [genre, setGenre] = useState('');
   const [audiobooks, setAudiobooks] = useState([]);
-  const [errorMsg, setErrorMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState('')
 
-  const URL = "http://localhost:5000/api/audiobook";
-  const URLforall = "http://localhost:5000/api/audiobook";
+  const URL = audiobookURL; // Update with your actual backend URL
 
   useEffect(() => {
-    if (audiobooks) {
-      const fetchAudioBooks = async () => {
-        try {
-          const response = await fetch(URLforall, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
+    if(audiobooks){
+    const fetchAudioBooks = async () => {
+      try {
+        const response = await fetch(URL, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
 
-          const res_data = await response.json();
-          // console.log(res_data)
-          if (response.ok) {
-            setAudiobooks(res_data);
-          } else {
-            console.log(res_data.message || "Invalid credentials");
-          }
-        } catch (error) {
-          console.log(`Error: ${error.message}`);
+        const res_data = await response.json();
+        if (response.ok) {
+          setAudiobooks(res_data)          
+        } else {
+          console.log(res_data.message || "Invalid credentials");
         }
-      };
+      } catch (error) {
+        console.log(`Error: ${error.message}`);
+      }
+    };
 
-      fetchAudioBooks();
-    }
-  }, [audiobooks]);
+    fetchAudioBooks();
+  }}, [URL]);
+
 
   const fetchAudiobooks = async (endurl, body) => {
     try {
       const response = await fetch(`${URL}/${endurl}`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(body),
+        body: JSON.stringify(body)
       });
       const res_data = await response.json();
       if (response.ok) {
-        console.log(res_data);
+        // console.log(res_data)
         setAudiobooks(res_data);
       } else {
-        console.log(res_data.message || "Invalid credentials");
+        console.log(res_data.message || 'Invalid credentials');
       }
     } catch (error) {
       console.log(`Error: ${error.message}`);
@@ -61,16 +62,17 @@ const ExploreAudiobooks = () => {
   };
 
   const handleSearch = () => {
-    if (query) {
-      setErrorMsg("");
-      fetchAudiobooks("search", { query });
-    } else {
-      setErrorMsg("Enter a query");
+    if(query){
+      setErrorMsg('')
+      fetchAudiobooks('search', { query });
+    }
+    else{
+      setErrorMsg('Enter a query')
     }
   };
-
+  
   const handleFilter = () => {
-    fetchAudiobooks("filter", { author, genre });
+    fetchAudiobooks('filter', { author, genre });
   };
 
   return (

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Abcard from '../components/cards/Abcard'
-
+import { useAuth } from '../store/auth';
 const Home = () => {
-  // const [errorMsg, setErrorMsg] = useState('')
+  const {audiobookURL} = useAuth();
   const [audiobooks, setAudiobooks] = useState([]);
   
   useEffect(() => {
-    const URL = 'http://localhost:5000/api/audiobook'
+    const URL = audiobookURL;   //usrl stored in contextapi
     const fetchAudioBooks = async () => {
       try {
         const response = await fetch(URL, {
@@ -15,9 +15,8 @@ const Home = () => {
             "Content-Type": "application/json",
           },
         });
-
+ 
         const res_data = await response.json();
-        // console.log(res_data)
         if (response.ok) {
           setAudiobooks(res_data)          
         } else {

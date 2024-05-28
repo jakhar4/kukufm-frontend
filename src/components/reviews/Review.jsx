@@ -1,9 +1,7 @@
-// Review.js
-import React from "react";
-import Stars from "./Stars";
+import React from 'react';
+import Stars from './Stars';
 
 const Review = ({ profileImg, name, rating, comment }) => {
-  // console.log(name)
   return (
     <div className="review_box">
       <div className="box_top">
@@ -15,7 +13,7 @@ const Review = ({ profileImg, name, rating, comment }) => {
             <strong>{name}</strong>
           </div>
         </div>
-        <Stars rating={rating} />
+        <Stars rating={rating}/>
       </div>
       <div className="usercomment">
         <p>{comment}</p>

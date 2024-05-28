@@ -6,35 +6,22 @@ import { useAuth } from '../../store/auth'
 import Reviews from '../reviews/Reviews';
 import { Rating } from 'react-simple-star-rating'
 
-
-// const imageURL =  'https://source.unsplash.com/1600x900/?portrait'
 const audio =  [['arcvx ko', 'cxz se', 'ZX takk', 'zxc mein'],['gh ko', 'jj se', 'sd takk', 'gh mein'],['fdgf ko', 'gh se', ' ghtakk', 'ghj mein']]
 const listens = '24k'
 const genre = ['hindi','cultural','educative','science']
 
-
+ 
 
 const Ab = () => {
   
-  // const {user,  isLoading, isLoggedIn} = useAuth()
-  const {isLoggedIn} = useAuth()
+  const {isLoggedIn, audiobookURL} = useAuth()
   const location = useLocation()
   const [abdata, setData] = useState([])
-  const URL = `http://localhost:5000/api${location.pathname}`
+  const URL = `${audiobookURL}${location.pathname.split('/')[2]}`
   const [newReview, setNewReview] = useState([]);
   const [newRating, setNewRating] = useState(0);
   const [reviewError, setReviewError] = useState('')
-  // if(!isLoggedIn){
-    //   return <Navigate to="/signin" />
-    // }
-    // if (isLoading) {
-    //   return <div>Loading...</div>;
-    // }
-    // console.log(user)
-
-    
-    // console.log(location.pathname.split('/')[2])
-    
+  const [reviewFetched, setReviewFetched] = useState(true) // when review is submitted reviews column must update
     useEffect(() => {
     const fetchDetails = async () => {
       try {
@@ -59,6 +46,7 @@ const Ab = () => {
   }, [URL]);
       
       
+// function for submitting review----------------
       const handleReviewSubmit = async (e) => {
         e.preventDefault();
         if(!isLoggedIn){
@@ -79,9 +67,10 @@ const Ab = () => {
               });
               const res_data = await response.json();
               console.log(res_data)
-              if (response) {
+              if (response.ok) {
                 setNewReview('');
                 setNewRating(0);
+                setReviewFetched(false)
               } else {
                 console.log(res_data.message || 'Failed to add review');
               }
@@ -103,7 +92,6 @@ const Ab = () => {
   return (
     <>
     <div className="audiobook_row">
-{/* 1st clumn -------------------------------------------------------------------------- */}
 <div className="col">
   <div className="title">{abdata.title}</div>
   <div className="cover">
@@ -132,21 +120,19 @@ const Ab = () => {
   </div>
 </div>
 
-{/* 2nd column --------------------------------------------------------------------------- */}
       <div className="col">
         {audio.map((season,seasonIndex)=>{
-            return <>
-            <div key={seasonIndex} className="season boxchip"> Season {seasonIndex + 1}</div>
+            return <div key={seasonIndex}>
+            <div className="season boxchip"> Season {seasonIndex + 1}</div>
             {season.map((episode,index)=>{
                 return<div key={index} className="episodes"> 
                     <div> <PlayCircleFilled className='play_icon' style={{fontSize:'40px'}} /> 
                     <div className="episode_title">E{index+1} : {episode}</div> </div>
                 </div>
             })}
-            </>
+            </div>
         })}
       </div>
-{/* 3rd column for reviews ------------------------------------------------------------------- */}
 <div className="col">
         <div className="reviewform">
           <div className="reviewheading">
@@ -166,7 +152,7 @@ const Ab = () => {
               </div>
             <label className="error">{reviewError}</label>
           </div>
-            <Reviews URL={URL}/>
+            <Reviews URL={URL} reviewFetched={reviewFetched}/>
         </div>
     </div>
     </>

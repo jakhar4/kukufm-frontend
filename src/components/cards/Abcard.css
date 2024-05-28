@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
 
 .card-link {
   text-decoration: none;
@@ -8,7 +8,7 @@
   position: relative;
   overflow: hidden;
   display: inline-block;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   width: 250px;
   height: 300px;
   border-radius: 12px;

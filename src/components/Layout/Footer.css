@@ -1,12 +1,12 @@
 .footer_container{
-    position: fixed; 
+    position: fixed;  /* Fixes the footer at the bottom */
     display: flex;
     justify-content: center;
     bottom: 0px;
     left: 0px;
     right: 0px;
     border-top: 1px solid rgb(230, 230, 230);
-    background-color: #f8f9fa; 
+    background-color: #f8f9fa;  /* Optional: give a background color */
 }
 
 .footer_content {
