@@ -1,7 +1,5 @@
 import { createContext, useContext, useState } from "react";
-
 export const AuthContext = createContext();
-
 export const AuthProvider =  ({ children }) => {
     const backendserver = 'https://kukufm-backend.onrender.com'
     // const backendserver = 'http://localhost:5000/'
