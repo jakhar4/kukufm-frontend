@@ -15,7 +15,6 @@ const ExploreAudiobooks = () => {
   const URL = audiobookURL; // Update with your actual backend URL
 
   useEffect(() => {
-    if(audiobooks){
     const fetchAudioBooks = async () => {
       try {
         const response = await fetch(URL, {
@@ -37,7 +36,7 @@ const ExploreAudiobooks = () => {
     };
 
     fetchAudioBooks();
-  }}, [URL]);
+  }, [URL]);
 
 
   const fetchAudiobooks = async (endurl, body) => {
