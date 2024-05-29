@@ -18,13 +18,13 @@
 
 ## 3 install npm librearies in both folders
       1. in Fronttend directory
-                run - npm i
+                run - (npm i)
       2. in Backend directory
-                run - npm i
+                run - (npm i)
 
 
 ## 4 run final step to initiallize project
       1. run Backend first
-                run - npm start
+                run - (npm start)
       2. run Frontkend first
-                run - npm start
+                run - (npm start)
