@@ -4,9 +4,9 @@ import { useAuth } from '../store/auth';
 const Home = () => {
   const {audiobookURL} = useAuth();
   const [audiobooks, setAudiobooks] = useState([]);
+  const URL = audiobookURL;   //usrl stored in contextapi
   
   useEffect(() => {
-    const URL = audiobookURL;   //usrl stored in contextapi
     const fetchAudioBooks = async () => {
       try {
         const response = await fetch(URL, {
