@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 export const AuthContext = createContext();
 
 export const AuthProvider =  ({ children }) => {
-    const backendserver = 'http://localhost:5000'
+    const backendserver = 'https://kukufm-backend.onrender.com'
     const [token, setToken] = useState(localStorage.getItem("token"));
     const authorizationToken = `Bearer ${token}`;
   
