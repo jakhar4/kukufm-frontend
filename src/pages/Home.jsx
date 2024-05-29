@@ -28,7 +28,7 @@ const Home = () => {
     };
 
     fetchAudioBooks();
-      }, []);
+      }, [URL]);
 
   return (
     <>
@@ -40,6 +40,3 @@ const Home = () => {
 }
 
 export default Home
-
-
-
